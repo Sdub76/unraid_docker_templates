@@ -13,4 +13,4 @@ Borgmatic Source: https://github.com/witten/borgmatic
 
 Borgmatic Reference: https://torsion.org/borgmatic
 
-Borg Reference: https://borgbackup.readthedocs.io
+BorgBackup Reference: https://borgbackup.readthedocs.io
