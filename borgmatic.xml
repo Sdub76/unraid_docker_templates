@@ -21,9 +21,9 @@
   <DonateText/>
   <DonateLink/>
   <Description>Borgmatic is simple, configuration-driven backup software for servers and workstations. Protect your files with client-side encryption. Backup your databases too. Monitor it all with integrated third-party services.&#xD;
-  It is recommended that your repo and cache be located on a drive outside of your array (unassigned devices plugin)&#xD;
-  Be sure to put a crontab.txt and config.yaml in the "Borgmatic config" folder.  Examples at https://github.com/b3vis/docker-borgmatic/tree/master/base/data/borgmatic.d&#xD;
-  Map /dev/fuse and pick a fuse mount point if you want the ability to expose a mounted backup archive to the host system.</Description>
+It is recommended that your repo and cache be located on a drive outside of your array (unassigned devices plugin)&#xD;
+Be sure to put a crontab.txt and config.yaml in the "Borgmatic config" folder.  Examples at https://github.com/b3vis/docker-borgmatic/tree/master/base/data/borgmatic.d&#xD;
+Map /dev/fuse and pick a fuse mount point if you want the ability to expose a mounted backup archive to the host system.</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish/>
