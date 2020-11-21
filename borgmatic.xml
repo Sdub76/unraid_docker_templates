@@ -9,7 +9,10 @@
   <Privileged>false</Privileged>
   <Support>https://hub.docker.com/r/b3vis/borgmatic/</Support>
   <Project/>
-  <Overview>borgmatic is simple, configuration-driven backup software for servers and workstations. Protect your files with client-side encryption. Backup your databases too. Monitor it all with integrated third-party services.</Overview>
+  <Overview>Borgmatic is simple, configuration-driven backup software for servers and workstations. Protect your files with client-side encryption. Backup your databases too. Monitor it all with integrated third-party services.&#xD;&#xD;
+It is recommended that your repo and cache be located on a drive outside of your array (unassigned devices plugin)&#xD;&#xD;
+Be sure to put a crontab.txt and config.yaml in the "Borgmatic config" folder.  Examples at https://github.com/b3vis/docker-borgmatic/tree/master/base/data/borgmatic.d&#xD;&#xD;
+Map /dev/fuse and pick a fuse mount point if you want the ability to expose a mounted backup archive to the host system.</Overview>
   <Category/>
   <WebUI/>
   <TemplateURL/>
@@ -20,10 +23,7 @@
   <DateInstalled>1605971049</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Description>Borgmatic is simple, configuration-driven backup software for servers and workstations. Protect your files with client-side encryption. Backup your databases too. Monitor it all with integrated third-party services.&#xD;
-It is recommended that your repo and cache be located on a drive outside of your array (unassigned devices plugin)&#xD;
-Be sure to put a crontab.txt and config.yaml in the "Borgmatic config" folder.  Examples at https://github.com/b3vis/docker-borgmatic/tree/master/base/data/borgmatic.d&#xD;
-Map /dev/fuse and pick a fuse mount point if you want the ability to expose a mounted backup archive to the host system.</Description>
+  <Description>borgmatic is simple, configuration-driven backup software for servers and workstations. Protect your files with client-side encryption. Backup your databases too. Monitor it all with integrated third-party services.</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish/>
@@ -88,16 +88,16 @@ Map /dev/fuse and pick a fuse mount point if you want the ability to expose a mo
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="User Shares (Backup Source)" Target="/mnt/user" Default="/mnt/user" Mode="ro" Description="Container Path: /mnt/user" Type="Path" Display="always" Required="false" Mask="false"></Config>
-  <Config Name="Flash Drive (Backup Source)" Target="/boot" Default="/boot" Mode="ro" Description="Container Path: /boot" Type="Path" Display="always" Required="false" Mask="false"></Config>
-  <Config Name="Borg Repo (Backup Destination)" Target="/mnt/borg-repository" Default="" Mode="rw,slave" Description="Container Path: /mnt/borg-repository" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="User Shares (RO Backup Source)" Target="/mnt/user" Default="/mnt/user" Mode="ro" Description="Container Path: /mnt/user" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Flash Drive (RO Backup Source)" Target="/boot" Default="/boot" Mode="ro" Description="Container Path: /boot" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Borg Repo (Backup Destination)" Target="/mnt/borg-repository" Default="/mnt/disks/borg_backup/repo" Mode="rw,slave" Description="Container Path: /mnt/borg-repository" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Borg Cache" Target="/root/.cache/borg" Default="/mnt/disks/borg_backup/cache" Mode="rw,slave" Description="Container Path: /root/.cache/borg" Type="Path" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="Borgmatic Config" Target="/etc/borgmatic.d" Default="/mnt/user/appdata/borgmatic/config" Mode="rw" Description="Container Path: /etc/borgmatic.d" Type="Path" Display="always" Required="true" Mask="false">/Config>
-  <Config Name="Borg Keys" Target="/root/.config/borg" Default="/mnt/user/appdata/borgmatic/borg_keys" Mode="rw" Description="Container Path: /root/.config/borg" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Borgmatic Config" Target="/etc/borgmatic.d" Default="/mnt/user/appdata/borgmatic/config" Mode="rw" Description="Container Path: /etc/borgmatic.d" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Borg Keys" Target="/root/.config/borg" Default="/mnt/user/appdata/borgmatic/borg_keys" Mode="rw,slave" Description="Container Path: /root/.config/borg" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="SSH Keys" Target="/root/.ssh" Default="/mnt/user/appdata/borgmatic/ssh_keys" Mode="rw" Description="Container Path: /root/.ssh" Type="Path" Display="always" Required="false" Mask="false"></Config>
-  <Config Name="Fuse mount point" Target="/mnt/fuse" Default="/mnt/borgmatic" Mode="rw,shared" Description="Container Path: /mnt/fuse" Type="Path" Display="always" Required="false" Mask="false"></Config>
-  <Config Name="/dev/fuse" Target="" Default="/dev/fuse" Mode="" Description="Container Device: " Type="Device" Display="always" Required="false" Mask="false">/dev/fuse</Config>
-  <Config Name="TZ" Target="TZ" Default="America/New_York" Mode="" Description="Container Variable: TZ" Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
-  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="UID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="true" Mask="false">99</Config>
-  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="GID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="true" Mask="false">100</Config>
+  <Config Name="Fuse mount point" Target="/mnt/fuse" Default="/mnt/borg" Mode="rw,shared" Description="Container Path: /mnt/fuse" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="TZ" Target="TZ" Default="America/New_York" Mode="" Description="Container Variable: TZ" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="/dev/fuse" Target="" Default="/dev/fuse" Mode="" Description="Container Device: " Type="Device" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="UID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="true" Mask="false"></Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="GID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="true" Mask="false"></Config>
 </Container>
