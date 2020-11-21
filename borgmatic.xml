@@ -11,8 +11,9 @@
   <Project/>
   <Overview>Borgmatic is simple, configuration-driven backup software for servers and workstations. Protect your files with client-side encryption. Backup your databases too. Monitor it all with integrated third-party services.&#xD;&#xD;
 It is recommended that your repo and cache be located on a drive outside of your array (unassigned devices plugin)&#xD;&#xD;
-If you need to initialize a new repo, open a docker console and type "borg init --encryption=repokey-blake2 /mnt/borg-repository" d&#xD;&#xD;
-Be sure to put a crontab.txt and config.yaml in the "Borgmatic config" folder.  Examples at https://github.com/b3vis/docker-borgmatic/tree/master/base/data/borgmatic.</Overview>
+To create a new repo, you need to initialize it first. Examples at https://borgbackup.readthedocs.io/en/stable/usage/init.html d&#xD;&#xD;
+Be sure to put a crontab.txt and config.yaml in the "Borgmatic config" folder.  Examples at https://github.com/b3vis/docker-borgmatic/tree/master/base/data/borgmatic. d&#xD;&#xD;
+A moutned repo can be accessed using the Fuse mount point from within the Unraid host file system.  Examples at https://borgbackup.readthedocs.io/en/stable/usage/mount.html</Overview>
   <Category/>
   <WebUI/>
   <TemplateURL/>
