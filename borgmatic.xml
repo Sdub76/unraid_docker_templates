@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>borgmatic</Name>
+  <Repository>b3vis/borgmatic</Repository>
+  <Registry>https://hub.docker.com/r/b3vis/borgmatic/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/b3vis/borgmatic/</Support>
+  <Project/>
+  <Overview>A container I wrote to automate my Borgbackup's using the excellent Borgmatic   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Overview>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://github.com/witten/borgmatic/raw/master/docs/static/borgmatic.png</Icon>
+  <ExtraParams>--cap-add SYS_ADMIN</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1605971049</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>A container I wrote to automate my Borgbackup's using the excellent Borgmatic   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/disks/borg_backup/repo</HostDir>
+      <ContainerDir>/mnt/borg-repository</ContainerDir>
+      <Mode>rw,slave</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/disks/borg_backup/cache/</HostDir>
+      <ContainerDir>/root/.cache/borg</ContainerDir>
+      <Mode>rw,slave</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/borgmatic/borgmatic/</HostDir>
+      <ContainerDir>/etc/borgmatic.d</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/disks/borg_backup/config/</HostDir>
+      <ContainerDir>/root/.config/borg</ContainerDir>
+      <Mode>rw,slave</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user</HostDir>
+      <ContainerDir>/mnt/user</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/boot</HostDir>
+      <ContainerDir>/boot</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/borgmatic/ssh_keys</HostDir>
+      <ContainerDir>/root/.ssh</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/disks/borg_backup/fuse_mount/</HostDir>
+      <ContainerDir>/mnt/fuse</ContainerDir>
+      <Mode>rw,shared</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>America/New_York</Value>
+      <Name>TZ</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Borg Repo" Target="/mnt/borg-repository" Default="" Mode="rw,slave" Description="Container Path: /mnt/borg-repository" Type="Path" Display="always" Required="true" Mask="false">/mnt/disks/borg_backup/repo</Config>
+  <Config Name="TZ" Target="TZ" Default="America/New_York" Mode="" Description="Container Variable: TZ" Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
+  <Config Name="Borg Cache" Target="/root/.cache/borg" Default="" Mode="rw,slave" Description="Container Path: /root/.cache/borg" Type="Path" Display="always" Required="true" Mask="false">/mnt/disks/borg_backup/cache/</Config>
+  <Config Name="Borgmatic config" Target="/etc/borgmatic.d" Default="/mnt/user/appdata/borgmatic/borgmatic/" Mode="rw" Description="Container Path: /etc/borgmatic.d" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/borgmatic/borgmatic/</Config>
+  <Config Name="Borg Config &amp;amp; Keys" Target="/root/.config/borg" Default="/mnt/user/appdata/borgmatic/config/borg/" Mode="rw,slave" Description="Container Path: /root/.config/borg" Type="Path" Display="always" Required="true" Mask="false">/mnt/disks/borg_backup/config/</Config>
+  <Config Name="User Shares (Backup Source)" Target="/mnt/user" Default="" Mode="ro" Description="Container Path: /mnt/user" Type="Path" Display="always" Required="false" Mask="false">/mnt/user</Config>
+  <Config Name="Flash Drive (Backup Source)" Target="/boot" Default="" Mode="ro" Description="Container Path: /boot" Type="Path" Display="always" Required="false" Mask="false">/boot</Config>
+  <Config Name="SSH Keys" Target="/root/.ssh" Default="" Mode="rw" Description="Container Path: /root/.ssh" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/borgmatic/ssh_keys</Config>
+  <Config Name="Fuse mount point" Target="/mnt/fuse" Default="" Mode="rw,shared" Description="Container Path: /mnt/fuse" Type="Path" Display="always" Required="false" Mask="false">/mnt/disks/borg_backup/fuse_mount/</Config>
+  <Config Name="PUID" Target="PUID" Default="" Mode="" Description="UID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="" Mode="" Description="GID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="true" Mask="false">100</Config>
+  <Config Name="/dev/fuse" Target="" Default="/dev/fuse" Mode="" Description="Container Device: " Type="Device" Display="advanced" Required="false" Mask="false">/dev/fuse</Config>
+</Container>
