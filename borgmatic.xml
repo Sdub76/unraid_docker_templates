@@ -16,7 +16,7 @@ Be sure to put a crontab.txt and config.yaml in the "Borgmatic config" folder.  
 A moutned repo can be accessed using the Fuse mount point from within the Unraid host file system.  Examples at https://borgbackup.readthedocs.io/en/stable/usage/mount.html</Overview>
   <Category>Backup</Category>
   <WebUI/>
-  <TemplateURL/>
+  <TemplateURL>https://github.com/Sdub76/unraid_docker_templates/blob/main/borgmatic.xml<TemplateURL/>
   <Icon>https://github.com/witten/borgmatic/raw/master/docs/static/borgmatic.png</Icon>
   <ExtraParams>--cap-add SYS_ADMIN</ExtraParams>
   <PostArgs/>
