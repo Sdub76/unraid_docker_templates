@@ -8,13 +8,13 @@
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support>https://forums.unraid.net/topic/99218-support-borgmatic/</Support>
-  <Project/>
+  <Project>https://hub.docker.com/r/b3vis/borgmatic/</Project>
   <Overview>Borgmatic is simple, configuration-driven backup software for servers and workstations. Protect your files with client-side encryption. Backup your databases too. Monitor it all with integrated third-party services.&#xD;&#xD;
 It is recommended that your Borg repo and cache be located on a drive outside of your array (unassigned devices plugin)&#xD;&#xD;
 To create a new repo, you need to initialize it first. Examples at https://borgbackup.readthedocs.io/en/stable/usage/init.html d&#xD;&#xD;
 Be sure to put a crontab.txt and config.yaml in the "Borgmatic config" folder.  Example at https://torsion.org/borgmatic/docs/reference/configuration/ d&#xD;&#xD;
 A moutned repo can be accessed using the Fuse mount point from within the Unraid host file system.  Examples at https://borgbackup.readthedocs.io/en/stable/usage/mount.html</Overview>
-  <Category/>
+  <Category>Backup</Category>
   <WebUI/>
   <TemplateURL/>
   <Icon>https://github.com/witten/borgmatic/raw/master/docs/static/borgmatic.png</Icon>
