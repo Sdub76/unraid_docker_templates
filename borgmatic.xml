@@ -7,7 +7,7 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://hub.docker.com/r/b3vis/borgmatic/</Support>
+  <Support>https://forums.unraid.net/topic/99218-support-borgmatic/</Support>
   <Project/>
   <Overview>Borgmatic is simple, configuration-driven backup software for servers and workstations. Protect your files with client-side encryption. Backup your databases too. Monitor it all with integrated third-party services.&#xD;&#xD;
 It is recommended that your Borg repo and cache be located on a drive outside of your array (unassigned devices plugin)&#xD;&#xD;
