@@ -13,7 +13,7 @@
   <Category>Backup</Category>
   <WebUI/>
   <TemplateURL>https://github.com/Sdub76/unraid_docker_templates/blob/main/borgmatic.xml</TemplateURL>
-  <Icon>https://github.com/witten/borgmatic/raw/master/docs/static/borgmatic.png</Icon>
+  <Icon>https://github.com/Sdub76/unraid_docker_templates/raw/main/images/borgmatic.png</Icon>
   <ExtraParams>--cap-add SYS_ADMIN</ExtraParams>
   <PostArgs/>
   <CPUset/>
