@@ -7,9 +7,9 @@ An Alpine Linux Docker container for witten's borgmatic by b3vis.  Borgmatic is 
 
 borgmatic is simple, configuration-driven backup software for servers and workstations. Protect your files with client-side encryption. Backup your databases too. Monitor it all with integrated third-party services.
 
-Docker Hub: https://hub.docker.com/r/b3vis/borgmatic
+Docker Container: https://github.com/borgmatic-collective/docker-borgmatic/pkgs/container/borgmatic
 
-Borgmatic Source: https://github.com/witten/borgmatic
+Borgmatic Source: https://github.com/borgmatic-collective/borgmatic
 
 Borgmatic Reference: https://torsion.org/borgmatic
 
