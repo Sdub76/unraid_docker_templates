@@ -61,6 +61,11 @@
       <ContainerDir>/root/.ssh</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/borgmatic/state</HostDir>
+      <ContainerDir>/root/.local/state/borgmatic</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
   </Data>
   <Environment>
     <Variable>
