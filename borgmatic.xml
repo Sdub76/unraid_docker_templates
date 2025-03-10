@@ -57,13 +57,13 @@
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/appdata/borgmatic/ssh_keys</HostDir>
-      <ContainerDir>/root/.ssh</ContainerDir>
+      <HostDir>/mnt/user/appdata/borgmatic/state</HostDir>
+      <ContainerDir>/root/.local/state/borgmatic</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/appdata/borgmatic/state</HostDir>
-      <ContainerDir>/root/.local/state/borgmatic</ContainerDir>
+      <HostDir>/mnt/user/appdata/borgmatic/ssh_keys</HostDir>
+      <ContainerDir>/root/.ssh</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
@@ -91,6 +91,7 @@
   <Config Name="Borg Cache" Target="/root/.cache/borg" Default="/mnt/disks/borg_backup/cache" Mode="rw,slave" Description="Container Path: /root/.cache/borg" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Borgmatic Config" Target="/etc/borgmatic.d" Default="/mnt/user/appdata/borgmatic/config" Mode="rw" Description="Container Path: /etc/borgmatic.d" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Borg Keys" Target="/root/.config/borg" Default="/mnt/user/appdata/borgmatic/borg_keys" Mode="rw" Description="Container Path: /root/.config/borg" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Borg Statefile" Target="/root/.local/state/borgmatic" Default="/mnt/user/appdata/borgmatic/state" Mode="rw" Description="Container Path: /root/.local/state/borgmatic" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="SSH Keys" Target="/root/.ssh" Default="/mnt/user/appdata/borgmatic/ssh_keys" Mode="rw" Description="Container Path: /root/.ssh" Type="Path" Display="always" Required="false" Mask="false"></Config>
   <Config Name="TZ" Target="TZ" Default="America/New_York" Mode="" Description="Container Variable: TZ" Type="Variable" Display="always" Required="false" Mask="false"></Config>
   <Config Name="/dev/fuse" Target="" Default="/dev/fuse" Mode="" Description="Container Device: " Type="Device" Display="advanced" Required="false" Mask="false"></Config>
